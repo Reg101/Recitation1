@@ -30,25 +30,24 @@ def test_encrypt_4():
 
 def test_decrypt_1():
     expected = 'Elements'
-    actual = decrypt('_T8/szUG', 'My Secret Password')
+    actual = decrypt('My Secret Password')
     assert expected == actual
 
 
 def test_decrypt_2():
     expected = 'Elements 2'
-    actual = decrypt('_T8/szUGn\n', 'My Secret Password')
+    actual = decrypt('My Secret Password')
     assert expected == actual
 
 
 def test_decrypt_3():
     expected = '4 me 2 be'
-    actual = decrypt('QsgD4um5f', 'My pass 1234')
+    actual = decrypt('My pass 1234')
     assert expected == actual
 
 
 def test_decrypt_4():
     import string
     expected = string.printable
-    actual = decrypt('acegikmoqsuwyACEGIKMOQSUWY!#%\')+-/;=?[]_{} \n\x0b02468ac!#%\')+-/;=?[]_{} '
-                     '\n\x0b02468acegikmoqsuwyACEGIKMOQSU', string.ascii_letters)
+    actual = decrypt(string.ascii_letters)
     assert expected == actual
